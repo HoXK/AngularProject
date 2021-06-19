@@ -1,0 +1,18 @@
+<div class="container-fluid" *ngIf="userList.length > 0">
+  <table class="table">
+    <thead class=".thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contactUs of contactUsList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ contactUs.email }}</td>
+        <td>{{ contactUs.phoneNumber }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
