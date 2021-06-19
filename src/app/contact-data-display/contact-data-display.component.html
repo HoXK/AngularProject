@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="userList.length > 0">
+<div class="container" *ngIf="contacts.length > 0">
   <table class="table">
     <thead class=".thead-dark">
       <tr>
@@ -8,10 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let contactUs of contactUsList; let i = index">
+      <tr *ngFor="let contact of contacts; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ contactUs.email }}</td>
-        <td>{{ contactUs.phoneNumber }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phoneNumber }}</td>
       </tr>
     </tbody>
   </table>

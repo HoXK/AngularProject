@@ -14,8 +14,7 @@ import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { ContactComponent } from "./contact/contact.component";
 import { ServicesListComponent } from "./services-list/services-list.component";
-import { ListOfContactUsComponent } from "./list-of-contact-us/list-of-contact-us.component";
-import { ContactUsDataDisplayComponent } from "./contact-us-data-display/contact-us-data-display.component";
+import { ContactDataDisplayComponent } from "./contact-data-display/contact-data-display.component";
 
 // lazy laoded Service module
 import { ServicesModule } from "./services/services.module";
@@ -49,8 +48,7 @@ import { RotateAnimationDirective } from "./_directives/rotate-animation.directi
     SignUpComponent,
     ListOfRegisteredUsersComponent,
     UserDataDisplayComponent,
-    ListOfContactUsComponent,
-    ContactUsDataDisplayComponent,
+    ContactDataDisplayComponent,
     HighlightDirective,
     CustomLoopDirective,
     RotateAnimationDirective,
