@@ -29,6 +29,9 @@ import { UserDataDisplayComponent } from "./user-data-display/user-data-display.
 import { HighlightDirective } from "./_directives/highlight.directive";
 import { CustomLoopDirective } from "./_directives/custom-loop.directive";
 import { RotateAnimationDirective } from "./_directives/rotate-animation.directive";
+import { CountryCodeDirective } from './_directives/country-code.directive';
+import { AboutUserInputComponent } from './about-user-input/about-user-input.component';
+import { RecipeComponent } from './recipe/recipe.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,9 @@ import { RotateAnimationDirective } from "./_directives/rotate-animation.directi
     HighlightDirective,
     CustomLoopDirective,
     RotateAnimationDirective,
+    CountryCodeDirective,
+    AboutUserInputComponent,
+    RecipeComponent,
   ],
   imports: [
     BrowserModule,

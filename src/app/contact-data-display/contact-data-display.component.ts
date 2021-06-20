@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ContactUs } from "../_helpers/interfaces/contactUs";
 
 @Component({
@@ -8,6 +8,7 @@ import { ContactUs } from "../_helpers/interfaces/contactUs";
 })
 export class ContactDataDisplayComponent implements OnInit {
   contacts: ContactUs[];
+
   constructor() {}
 
   ngOnInit() {

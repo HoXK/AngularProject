@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
       email: ["", [Validators.email, Validators.required]],
       phoneNumber: [
         "",
-        [Validators.pattern("^[+][0-9]*$"), Validators.required],
+        [Validators.pattern("^[+][0-9]*[-][0-9]*$"), Validators.required],
       ],
     });
   }
@@ -43,6 +43,6 @@ export class ContactComponent implements OnInit {
     sessionStorage.setItem("contacts", JSON.stringify(this.ContactsArr));
 
     alert("Contact Submitted");
-    this.contactForm.reset;
+    this.contactForm.reset();
   }
 }

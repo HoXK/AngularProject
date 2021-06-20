@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AboutUserInputComponent } from "./about-user-input/about-user-input.component";
 import { AboutComponent } from "./about/about.component";
 import { CareersComponent } from "./careers/careers.component";
 import { ContactDataDisplayComponent } from "./contact-data-display/contact-data-display.component";
@@ -10,6 +11,7 @@ import { InsightsComponent } from "./insights/insights.component";
 import { ListOfRegisteredUsersComponent } from "./list-of-registered-users/list-of-registered-users.component";
 import { LoginComponent } from "./login/login.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { RecipeComponent } from "./recipe/recipe.component";
 import { Login } from "./_guards/login.service";
 import { UnsavedChangesGuard } from "./_guards/un-saved-changes-guard.service";
 
@@ -41,6 +43,10 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
+    path: "aboutUserInput",
+    component: AboutUserInputComponent,
+  },
+  {
     path: "contact",
     component: ContactComponent,
   },
@@ -56,6 +62,10 @@ const routes: Routes = [
   {
     path: "contactDataDisplay",
     component: ContactDataDisplayComponent,
+  },
+  {
+    path: "recipe",
+    component: RecipeComponent,
   },
   {
     path: "**",
