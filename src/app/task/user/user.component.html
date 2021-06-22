@@ -1,10 +1,18 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <div class="col-md-12">
-      <app-register></app-register>
+      <!-- <app-register></app-register> -->
+      <a
+        href="#"
+        class="btn fa fa-plus-circle"
+        style="font-size: 25px"
+        [routerLink]="['/task', 'user', 'register']"
+      >
+        Add New User
+      </a>
     </div>
 
-    <div class="col-md-12">
+    <div class="col-md-12 mt-3">
       <app-user-data-display></app-user-data-display>
     </div>
   </div>

@@ -13,31 +13,31 @@ export class UsersService {
 
   getAllUsers(): Observable<Users[]> {
     return this.http
-      .get(`${environment.localApiHost}/users`)
+      .get(`${environment.localApiHost}/user`)
       .pipe(map((data: Users[]) => data));
   }
 
   getUser(uid): Observable<Users> {
     return this.http
-      .get(`${environment.localApiHost}/users/${uid}`)
+      .get(`${environment.localApiHost}/user/${uid}`)
       .pipe(map((data: Users) => data));
   }
 
   createUser(user: Users): Observable<Users> {
     return this.http
-      .post(`${environment.localApiHost}/users`, user)
+      .post(`${environment.localApiHost}/createUser`, user)
       .pipe(map((data: Users) => data));
   }
 
   editUser(user: Users): Observable<Users> {
     return this.http
-      .put(`${environment.localApiHost}/users/${user.id}`, user)
+      .put(`${environment.localApiHost}/updateUser`, user)
       .pipe(map((data: Users) => data));
   }
 
   deleteUser(userId: number): Observable<Users> {
     return this.http
-      .request("delete", `${environment.localApiHost}/users`, { body: userId })
+      .delete(`${environment.localApiHost}/deleteUser/${userId}`)
       .pipe(map((data: Users) => data));
   }
 }

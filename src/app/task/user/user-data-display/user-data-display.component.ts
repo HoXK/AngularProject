@@ -13,6 +13,18 @@ export class UserDataDisplayComponent implements OnInit {
   constructor(private userService: UsersService) {}
 
   ngOnInit() {
+    this.getAllUsers();
+  }
+
+  onDelete(userId: number) {
+    if (confirm("Are you sure to delete " + userId)) {
+      this.userService.deleteUser(userId).subscribe({
+        next: () => this.getAllUsers(),
+      });
+    }
+  }
+
+  getAllUsers() {
     this.userService.getAllUsers().subscribe({
       next: (data) => {
         this.users = data;
@@ -23,9 +35,5 @@ export class UserDataDisplayComponent implements OnInit {
         }
       },
     });
-  }
-
-  onDelete(userId: number) {
-    this.userService.deleteUser(userId);
   }
 }

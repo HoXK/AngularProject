@@ -26,7 +26,11 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
-    path: "userEdit",
+    path: "user/register",
+    component: RegisterComponent,
+  },
+  {
+    path: "user/edit/:id",
     component: UserEditComponent,
   },
 ];

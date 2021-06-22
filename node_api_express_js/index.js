@@ -1,9 +1,9 @@
-const request = require("http");
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
-
+const cors = require("cors");
+const allowedOrigins = ["http://localhost:4200"];
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
   database: "achieversit",
 });
 
-var server = app.listen(4200, function () {
+var server = app.listen(4100, function () {
   //   var host = server.address().address;
   var port = server.address().port;
 
@@ -28,6 +28,13 @@ app.use(
     extended: true,
   })
 );
+app.use(
+  cors(
+    (cors.CorsOptions = {
+      origin: allowedOrigins,
+    })
+  )
+);
 
 app.get("/user", (req, res) => {
   connection.query("SELECT * FROM users", (error, results, fields) => {
@@ -37,7 +44,7 @@ app.get("/user", (req, res) => {
 });
 
 app.post("/createUser", (req, res) => {
-  let postData = request.body;
+  let postData = req.body;
   connection.query(
     "INSERT INTO users SET ?",
     postData,
@@ -48,8 +55,8 @@ app.post("/createUser", (req, res) => {
   );
 });
 
-app.post("/deleteUser", (req, res) => {
-  let id = request.body;
+app.delete("/deleteUser/:id", (req, res) => {
+  let id = req.params.id;
   connection.query(
     `DELETE FROM users WHERE id=${id}`,
     (error, results, fields) => {
@@ -59,8 +66,8 @@ app.post("/deleteUser", (req, res) => {
   );
 });
 
-app.get("/fetchUser", (req, res) => {
-  let id = request.body.id;
+app.get("/user/:id", (req, res) => {
+  let id = req.params.id;
   connection.query(
     `SELECT * FROM users where id=${id}`,
     (error, results, fields) => {
@@ -71,9 +78,9 @@ app.get("/fetchUser", (req, res) => {
 });
 
 app.put("/updateUser", (req, res) => {
-  let userData = request.body;
+  let userData = req.body;
   connection.query(
-    `UPDATE users SET name=${userData.name}, email=${userData.email}, address=${userData.address}, country=${userData.country}, phone=${userData.phone}  WHERE id=${id}`,
+    `UPDATE users SET firstname='${userData.firstname}', lastname='${userData.lastname}', email='${userData.email}', country='${userData.country}', address='${userData.address}' WHERE id=${userData.id}`,
     (error, results, fields) => {
       if (error) throw error;
       res.end(JSON.stringify(results));
