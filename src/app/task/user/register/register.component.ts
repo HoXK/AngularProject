@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Users } from "src/app/_helpers/interfaces/userDetails";
 import { UsersService } from "src/app/_services/users.service";
 
@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UsersService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.submited = false;
   }
@@ -40,6 +41,6 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submited = true;
     this.userService.createUser(this.createForm.value);
-    this.router.navigate(["/task", "user"]);
+    this.router.navigate(["../"], { relativeTo: this.route });
   }
 }

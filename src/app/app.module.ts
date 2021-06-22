@@ -31,6 +31,9 @@ import { UserDataDisplayComponent } from "./user-data-display/user-data-display.
 import { HighlightDirective } from "./_directives/highlight.directive";
 import { CustomLoopDirective } from "./_directives/custom-loop.directive";
 import { SharedModuleModule } from "./_directives/shared-module.module";
+import { RxjsOperatorsComponent } from "./rxjs-operators/rxjs-operators.component";
+import { CanDeactivateGuardService } from "./task/user/user-edit/can-deactivate-guard.service";
+import { userDataDisplayResolverService } from "./task/user/user-data-display/user-data-display-resolver.service";
 
 @NgModule({
   declarations: [
@@ -51,6 +54,7 @@ import { SharedModuleModule } from "./_directives/shared-module.module";
     ListOfRegisteredUsersComponent,
     UserDataDisplayComponent,
     ContactDataDisplayComponent,
+    RxjsOperatorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,11 @@ import { SharedModuleModule } from "./_directives/shared-module.module";
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [UnsavedChangesGuard],
+  providers: [
+    UnsavedChangesGuard,
+    CanDeactivateGuardService,
+    userDataDisplayResolverService,
+  ],
   exports: [HighlightDirective, CustomLoopDirective],
   bootstrap: [AppComponent],
 })

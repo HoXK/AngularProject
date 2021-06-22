@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { of } from "rxjs";
+import { map, switchMap } from "rxjs/operators";
 import { Posts } from "../_helpers/interfaces/posts";
 import { PostsService } from "../_services/posts.service";
 
@@ -23,6 +25,12 @@ export class PostsComponent implements OnInit {
       },
     });
   }
+
+  switchMap = this.postService.getPosts().pipe(
+    switchMap((posts: Posts[]) => {
+      this.postService.getSinglePost(posts.i);
+    })
+  );
 
   trackByFn(index) {
     return index;

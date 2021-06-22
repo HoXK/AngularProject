@@ -10,6 +10,7 @@ import { InsightsComponent } from "./insights/insights.component";
 import { ListOfRegisteredUsersComponent } from "./list-of-registered-users/list-of-registered-users.component";
 import { LoginComponent } from "./login/login.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { RxjsOperatorsComponent } from "./rxjs-operators/rxjs-operators.component";
 import { Login } from "./_guards/login.service";
 import { UnsavedChangesGuard } from "./_guards/un-saved-changes-guard.service";
 
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: "contactDataDisplay",
     component: ContactDataDisplayComponent,
+  },
+  {
+    path: "rxjs",
+    component: RxjsOperatorsComponent,
   },
   {
     path: "task",

@@ -10,7 +10,9 @@ import { TasksRoutingModule } from "./task-routing.module";
 import { TaskComponent } from "./task.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SharedModuleModule } from "../_directives/shared-module.module";
-import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserEditComponent } from "./user/user-edit/user-edit.component";
+import { AboutUsComponent } from "./about-group/about-us/about-us.component";
+import { AboutGroupComponent } from "./about-group/about-group.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
     RecipeComponent,
     AboutUserInputComponent,
     UserEditComponent,
+    AboutUsComponent,
+    AboutGroupComponent,
   ],
   imports: [
     CommonModule,
