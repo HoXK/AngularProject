@@ -28,6 +28,7 @@
               class="form-control"
               id="phoneNumber"
               formControlName="phoneNumber"
+              appValidation
               [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
             />
             <div *ngIf="f.phoneNumber.errors?.pattern" class="invalid-feedback">

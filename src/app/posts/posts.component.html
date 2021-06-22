@@ -1,0 +1,29 @@
+<section class="container">
+  <section class="row">
+    <h1>
+      List of Posts
+      <span
+        class="fa fa-plus-circle float-end"
+        role="button"
+        (click)="createPost()"
+        title="Create new post"
+      ></span>
+    </h1>
+    <section class="col-md-3" *ngFor="let post of posts; trackBy: trackByFn">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">{{ post.body }}</p>
+          <a
+            href="#"
+            routerLink="/posts/post-details/{{ post.id }}"
+            class="btn btn-primary"
+            id="{{ post.id }}"
+            [ngStyle]="{ 'background-color': 'red' }"
+            >Explore</a
+          >
+        </div>
+      </div>
+    </section>
+  </section>
+</section>

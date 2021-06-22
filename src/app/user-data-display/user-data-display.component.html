@@ -1,4 +1,4 @@
-<table class="table" *ngIf="UserList.length>0">
+<table class="table" *ngIf="UserList.length > 0">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of UserList; let i=index;">
-      <th scope="row">{{i+1}}</th>
-      <td>{{user.firstname}}</td>
-      <td>{{user.lastname}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.country}}</td>
-      <td>{{user.address}}</td>
+    <tr *ngFor="let user of UserList; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>{{ user.useremail }}</td>
+      <td>{{ user.country }}</td>
+      <td>{{ user.address }}</td>
     </tr>
   </tbody>
 </table>
