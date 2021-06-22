@@ -26,14 +26,13 @@ export class SignUpComponent implements OnInit {
   submited: boolean;
   usersData: Users;
   message: string = "This is child Message";
+
+  @Output() PostData = new EventEmitter<Users>();
   @Input("user") user;
   @ViewChild("fname", { static: false, read: ElementRef })
   firstname: ElementRef;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private userService: UsersService
-  ) {
+  constructor(private formBuilder: FormBuilder) {
     this.submited = false;
   }
 
@@ -57,17 +56,7 @@ export class SignUpComponent implements OnInit {
     this.usersData = this.registerForm.value;
     this.message = "This is child Message Updated";
 
-    // this.PostData.emit(this.usersData);
-
-    this.userService.createUser(this.usersData).subscribe({
-      next: (data) => (this.usersData = data),
-      error: (error) => {
-        console.log(error);
-        if (error.status === 404) {
-          alert("Please check the API endpoint");
-        }
-      },
-    });
+    this.PostData.emit(this.usersData);
   }
 
   ngOnChanges() {

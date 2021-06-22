@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { environment } from "src/environments/environment";
@@ -11,7 +11,7 @@ import { Users } from "../_helpers/interfaces/userDetails";
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<Users[]> {
+  getAllUsers(): Observable<Users[]> {
     return this.http
       .get(`${environment.localApiHost}/users`)
       .pipe(map((data: Users[]) => data));
@@ -35,9 +35,9 @@ export class UsersService {
       .pipe(map((data: Users) => data));
   }
 
-  deleteUser(user: Users): Observable<Users> {
+  deleteUser(userId: number): Observable<Users> {
     return this.http
-      .delete(`${environment.localApiHost}/users`)
+      .request("delete", `${environment.localApiHost}/users`, { body: userId })
       .pipe(map((data: Users) => data));
   }
 }

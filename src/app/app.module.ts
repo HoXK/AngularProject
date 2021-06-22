@@ -2,7 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { PushNotificationModule } from "ng-push-notification";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,6 +19,7 @@ import { ContactDataDisplayComponent } from "./contact-data-display/contact-data
 
 // lazy laoded Service module
 import { ServicesModule } from "./services/services.module";
+import { TaskModule } from "./task/task.module";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { LoginComponent } from "./login/login.component";
 
@@ -30,11 +30,7 @@ import { ListOfRegisteredUsersComponent } from "./list-of-registered-users/list-
 import { UserDataDisplayComponent } from "./user-data-display/user-data-display.component";
 import { HighlightDirective } from "./_directives/highlight.directive";
 import { CustomLoopDirective } from "./_directives/custom-loop.directive";
-import { RotateAnimationDirective } from "./_directives/rotate-animation.directive";
-import { CountryCodeDirective } from "./_directives/country-code.directive";
-import { AboutUserInputComponent } from "./about-user-input/about-user-input.component";
-import { RecipeComponent } from "./recipe/recipe.component";
-import { ValidationDirective } from './_directives/validation.directive';
+import { SharedModuleModule } from "./_directives/shared-module.module";
 
 @NgModule({
   declarations: [
@@ -55,24 +51,19 @@ import { ValidationDirective } from './_directives/validation.directive';
     ListOfRegisteredUsersComponent,
     UserDataDisplayComponent,
     ContactDataDisplayComponent,
-    HighlightDirective,
-    CustomLoopDirective,
-    RotateAnimationDirective,
-    CountryCodeDirective,
-    AboutUserInputComponent,
-    RecipeComponent,
-    ValidationDirective,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModuleModule,
     ServicesModule,
+    TaskModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    PushNotificationModule.forRoot(),
   ],
   providers: [UnsavedChangesGuard],
+  exports: [HighlightDirective, CustomLoopDirective],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

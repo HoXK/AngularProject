@@ -70,25 +70,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#" routerLink="/industries">Industries</a>
           </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              routerLink="/about"
-            >
-              About
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item" href="#" routerLink="/aboutUserInput"
-                  >About (User Input)</a
-                >
-              </li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" routerLink="/login">Login</a>
@@ -99,8 +82,35 @@
           <li class="nav-item">
             <a class="nav-link" href="#" routerLink="/posts">Posts</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" routerLink="/recipe">Recipe</a>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              routerLink="/task"
+            >
+              Task
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#" routerLink="/task/aboutUserInput"
+                  >About (User Input)</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="/task/recipe"
+                  >Recipe</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" routerLink="/task/user"
+                  >User</a
+                >
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
