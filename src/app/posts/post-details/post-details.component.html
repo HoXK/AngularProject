@@ -1,0 +1,16 @@
+<section class="container">
+  <section class="row">
+    <section class="col-md-3">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ singlePost.title }}</h5>
+          <p class="card-text">{{ singlePost.body }}</p>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" (click)="DeletePost()">Delete</button>
+          <button class="btn btn-primary" routerLink="/edit">Edit</button>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>

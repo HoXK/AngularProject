@@ -1,6 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { PushNotificationModule } from "ng-push-notification";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -29,9 +31,10 @@ import { UserDataDisplayComponent } from "./user-data-display/user-data-display.
 import { HighlightDirective } from "./_directives/highlight.directive";
 import { CustomLoopDirective } from "./_directives/custom-loop.directive";
 import { RotateAnimationDirective } from "./_directives/rotate-animation.directive";
-import { CountryCodeDirective } from './_directives/country-code.directive';
-import { AboutUserInputComponent } from './about-user-input/about-user-input.component';
-import { RecipeComponent } from './recipe/recipe.component';
+import { CountryCodeDirective } from "./_directives/country-code.directive";
+import { AboutUserInputComponent } from "./about-user-input/about-user-input.component";
+import { RecipeComponent } from "./recipe/recipe.component";
+import { ValidationDirective } from './_directives/validation.directive';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,7 @@ import { RecipeComponent } from './recipe/recipe.component';
     CountryCodeDirective,
     AboutUserInputComponent,
     RecipeComponent,
+    ValidationDirective,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +69,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     ServicesModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    PushNotificationModule.forRoot(),
   ],
   providers: [UnsavedChangesGuard],
   bootstrap: [AppComponent],
