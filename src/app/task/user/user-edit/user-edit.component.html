@@ -5,9 +5,6 @@
       <input
         type="text"
         name="firstname"
-        #fname
-        appHighlight
-        [highlighter]="'yellow'"
         class="form-control"
         formControlName="firstname"
         [ngClass]="{ 'is-invalid': submited && f.firstname.errors }"
@@ -23,8 +20,6 @@
       <input
         type="text"
         name="lastname"
-        appHighlight
-        [highlighter]="'blue'"
         class="form-control"
         formControlName="lastname"
         [ngClass]="{ 'is-invalid': submited && f.lastname.errors }"
@@ -40,8 +35,6 @@
       <input
         type="email"
         name="email"
-        appHighlight
-        [highlighter]="'red'"
         class="form-control"
         formControlName="useremail"
         [ngClass]="{ 'is-invalid': submited && f.useremail.errors }"
@@ -87,8 +80,7 @@
       </div>
     </div>
     <div class="form-group">
-      <input type="submit" name="signup" class="btn btn-danger float-end" />
+      <input type="submit" name="edit" class="btn btn-danger float-end" />
     </div>
   </form>
-  <input #nameInput placeholder="Enter Your Name" />
 </div>

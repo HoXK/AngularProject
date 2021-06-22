@@ -1,0 +1,31 @@
+<div class="container" *ngIf="contacts.length > 0">
+  <table class="table">
+    <thead class=".thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Country</th>
+        <th scope="col">Address</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.country }}</td>
+        <td>{{ user.address }}</td>
+        <td>
+          <a href="#" class="btn fa fa-edit" routerLink="/userEdit"></a>
+          <a href="#" class="btn fa fa-delete" (click)="onDelete(user.id)"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

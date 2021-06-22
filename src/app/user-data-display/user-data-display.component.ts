@@ -8,11 +8,21 @@ import { UsersService } from "../_services/users.service";
   styleUrls: ["./user-data-display.component.css"],
 })
 export class UserDataDisplayComponent implements OnInit {
-  UserList: Users[];
+  @Input("userList") UserList;
 
-  constructor(private userService: UsersService) {}
+  constructor() {
+    console.log(this.UserList);
+  }
 
   ngOnInit() {
-    this.userService.getUsers().subscribe((data) => (this.UserList = data));
+    //console.log(this.UserList);
+    //alert('ngOnInit');
+  }
+
+  ngAfterViewChecked() {
+    //alert('ngAfterViewChecked');
+    if (this.UserList.length > 0) {
+      console.log(this.UserList);
+    }
   }
 }

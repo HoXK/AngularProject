@@ -19,22 +19,26 @@ export class ListOfRegisteredUsersComponent implements OnInit, AfterViewInit {
     name: "Alex",
   };
   @ViewChild(SignUpComponent, { static: true }) child;
+  //@ViewChild('fname',{static: false,read:ElementRef}) firstname: ElementRef;
+  //@ViewChild('nameInput',{static: false,read:ElementRef}) someInput: ElementRef;
 
   constructor() {}
-  ngOnInit() {}
 
-  // getRegisteredUser(event){
-  //   this.allUser.push(event);
-  // }
+  ngOnInit() {
+    //console.log(this.child.usersData);
+    //this.firstname.nativeElement.style.border = "3px dashed green";
+  }
 
   ngAfterViewInit() {
     this.usersFromChild = this.child.message;
   }
+
   ngAfterViewChecked() {
     this.usersFromChild = this.child.usersData;
+    console.log(this.usersFromChild);
   }
 
-  // updateUser() {
-  //   this.user.name = "Murali";
-  // }
+  updateUser() {
+    this.user.name = "Murali";
+  }
 }
