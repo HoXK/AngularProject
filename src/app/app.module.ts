@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -34,6 +34,8 @@ import { SharedModuleModule } from "./_directives/shared-module.module";
 import { RxjsOperatorsComponent } from "./rxjs-operators/rxjs-operators.component";
 import { CanDeactivateGuardService } from "./task/user/user-edit/can-deactivate-guard.service";
 import { userDataDisplayResolverService } from "./task/user/user-data-display/user-data-display-resolver.service";
+import { JwtInterceptor } from "./_helpers/jwt-Interceptor";
+import { ErrorInterceptor } from "./_helpers/error-Interceptor";
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { userDataDisplayResolverService } from "./task/user/user-data-display/us
     UnsavedChangesGuard,
     CanDeactivateGuardService,
     userDataDisplayResolverService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   exports: [HighlightDirective, CustomLoopDirective],
   bootstrap: [AppComponent],

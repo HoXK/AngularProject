@@ -1,6 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { of } from "rxjs";
-import { map, switchMap, tap } from "rxjs/operators";
+import { from, fromEvent, of, Subject } from "rxjs";
+import {
+  first,
+  map,
+  mergeMap,
+  switchMap,
+  takeLast,
+  takeUntil,
+  takeWhile,
+  tap,
+} from "rxjs/operators";
 import { Posts } from "../_helpers/interfaces/posts";
 import { PostsService } from "../_services/posts.service";
 
@@ -11,6 +20,8 @@ import { PostsService } from "../_services/posts.service";
 })
 export class PostsComponent implements OnInit {
   posts: Posts[];
+  count: number = 0;
+  startClick: Subject<void> = new Subject<void>();
 
   constructor(private postService: PostsService) {}
 
@@ -37,6 +48,42 @@ export class PostsComponent implements OnInit {
         })
       )
       .subscribe((res) => console.log(res));
+
+    this.postService
+      .getPosts()
+      .pipe(
+        mergeMap((posts) => {
+          return this.postService.getSinglePost(1).pipe(
+            map((singlePost) => {
+              const allposts = { posts, singlePost };
+              return allposts;
+            })
+          );
+        })
+      )
+      .subscribe((res) => console.log(res));
+
+    const sourceClick = fromEvent(document, "click");
+    sourceClick.pipe(first()).subscribe(() => {
+      console.log("Document is clicked only once");
+    });
+
+    sourceClick.pipe(takeWhile(() => this.count < 3)).subscribe(() => {
+      console.log("Document is allowed to click 3 times");
+      this.count++;
+    });
+
+    const sourceTakeLast = of("Angular", "React", "VueJs");
+    sourceTakeLast.pipe(takeLast(2)).subscribe((data) => console.log(data));
+
+    sourceClick
+      .pipe(takeUntil(this.startClick))
+      .subscribe((res) => console.log(res));
+  }
+
+  stopClick() {
+    this.startClick.next();
+    this.startClick.complete();
   }
 
   trackByFn(index) {

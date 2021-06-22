@@ -5,6 +5,7 @@ import { AboutUserInputComponent } from "./about-user-input/about-user-input.com
 import { RecipeComponent } from "./recipe/recipe.component";
 
 import { TaskComponent } from "./task.component";
+import { TemplateDrivenFromComponent } from "./template-driven-from/template-driven-from.component";
 import { RegisterComponent } from "./user/register/register.component";
 import { userDataDisplayResolverService } from "./user/user-data-display/user-data-display-resolver.service";
 import { UserDataDisplayComponent } from "./user/user-data-display/user-data-display.component";
@@ -44,6 +45,10 @@ const routes: Routes = [
         canDeactivate: [CanDeactivateGuardService],
       },
     ],
+  },
+  {
+    path: "templateDrivenFrom",
+    component: TemplateDrivenFromComponent,
   },
   {
     path: "**",

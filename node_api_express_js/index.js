@@ -3,6 +3,9 @@ const app = express();
 const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const config = require("./config.json");
+const jwt = require("jsonwebtoken");
+const jwtHelper = require("./helper/jwt");
 const allowedOrigins = ["http://localhost:4200"];
 const connection = mysql.createConnection({
   host: "localhost",
@@ -35,6 +38,22 @@ app.use(
     })
   )
 );
+app.use(jwtHelper());
+
+app.post("/authenticate", (req, res) => {
+  let users = req.body;
+
+  const token = jwt.sign({ sub: users.username }, config.secret, {
+    expiresIn: "7d",
+  });
+
+  res.end(
+    JSON.stringify({
+      ...users,
+      token: token,
+    })
+  );
+});
 
 app.get("/user", (req, res) => {
   connection.query("SELECT * FROM users", (error, results, fields) => {

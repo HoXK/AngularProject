@@ -13,6 +13,7 @@ import { SharedModuleModule } from "../_directives/shared-module.module";
 import { UserEditComponent } from "./user/user-edit/user-edit.component";
 import { AboutUsComponent } from "./about-group/about-us/about-us.component";
 import { AboutGroupComponent } from "./about-group/about-group.component";
+import { TemplateDrivenFromComponent } from './template-driven-from/template-driven-from.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AboutGroupComponent } from "./about-group/about-group.component";
     UserEditComponent,
     AboutUsComponent,
     AboutGroupComponent,
+    TemplateDrivenFromComponent,
   ],
   imports: [
     CommonModule,

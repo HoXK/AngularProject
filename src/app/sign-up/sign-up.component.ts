@@ -6,14 +6,10 @@ import {
   ViewChild,
   ElementRef,
   ChangeDetectionStrategy,
-  DoCheck,
-  OnChanges,
   Input,
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Users } from "../_helpers/interfaces/userDetails";
-import { HttpClient } from "@angular/common/http";
-import { UsersService } from "../_services/users.service";
 
 @Component({
   selector: "app-sign-up",

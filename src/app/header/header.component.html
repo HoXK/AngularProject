@@ -99,24 +99,25 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a
-                  class="dropdown-item"
-                  href="#"
-                  routerLink="/task/aboutUserInput"
+                <a class="dropdown-item" routerLink="/task/aboutUserInput"
                   >About (User Input)</a
                 >
               </li>
               <li>
-                <a class="dropdown-item" href="#" routerLink="/task/recipe"
-                  >Recipe</a
-                >
+                <a class="dropdown-item" routerLink="/task/recipe">Recipe</a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" routerLink="/task/user"
-                  >User</a
+                <a class="dropdown-item" routerLink="/task/user">User</a>
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/task/templateDrivenForm"
+                  >Template Driven Form</a
                 >
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" class="btn" (click)="onLogout()">Logout</a>
           </li>
         </ul>
       </div>
