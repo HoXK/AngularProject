@@ -2,6 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatIconModule } from "@angular/material/icon";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -36,6 +38,8 @@ import { CanDeactivateGuardService } from "./task/user/user-edit/can-deactivate-
 import { userDataDisplayResolverService } from "./task/user/user-data-display/user-data-display-resolver.service";
 import { JwtInterceptor } from "./_helpers/jwt-Interceptor";
 import { ErrorInterceptor } from "./_helpers/error-Interceptor";
+import { MaterialRoutingModule } from "./_material/_material-routing.module";
+import { MaterialModule } from "./_material/_material.module";
 
 @NgModule({
   declarations: [
@@ -67,6 +71,10 @@ import { ErrorInterceptor } from "./_helpers/error-Interceptor";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MaterialRoutingModule,
+    MatIconModule,
   ],
   providers: [
     UnsavedChangesGuard,

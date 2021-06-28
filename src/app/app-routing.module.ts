@@ -68,6 +68,11 @@ const routes: Routes = [
     component: RxjsOperatorsComponent,
   },
   {
+    path: "angular-material",
+    loadChildren: () =>
+      import("./_material/_material.module").then((x) => x.MaterialModule),
+  },
+  {
     path: "task",
     loadChildren: () => import("./task/task.module").then((m) => m.TaskModule),
   },
