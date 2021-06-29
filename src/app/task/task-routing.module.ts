@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: "user",
     component: UserComponent,
-    resolve: { users: userDataDisplayResolverService },
+    // resolve: { users: userDataDisplayResolverService },
     children: [
       {
         path: "userData",

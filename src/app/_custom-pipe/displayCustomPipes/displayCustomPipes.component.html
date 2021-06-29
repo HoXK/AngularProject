@@ -1,0 +1,23 @@
+<div class="row" [ngSwitch]="part">
+  <div class="col-xs-12" *ngSwitchCase="'1'">
+    <h3>
+      {{ message | welcome }}
+    </h3>
+  </div>
+  <div class="col-xs-12" *ngSwitchCase="'2'">
+    <h3>
+      {{ message | strformat: "@" }}
+    </h3>
+  </div>
+  <div class="col-xs-12" *ngSwitchCase="'3'">
+    <h3>
+      {{ today | repeat: 4 }}
+    </h3>
+  </div>
+  <div class="col-xs-12" *ngSwitchCase="'4'">
+    <h3>
+      {{ message | myuppercasetwo: "-" }}
+    </h3>
+  </div>
+  <div class="col-xs-12" *ngSwitchCase="'5'"></div>
+</div>

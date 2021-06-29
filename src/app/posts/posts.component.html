@@ -9,7 +9,18 @@
         title="Create new post"
       ></span>
     </h1>
-    <section class="col-md-3" *ngFor="let post of posts; trackBy: trackByFn">
+
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control mb-4"
+        placeholder="Search"
+        [(ngModel)]="query"
+        id="listSearch"
+      />
+    </div>
+
+    <section class="col-md-3" *ngFor="let post of posts | searchFilter: query">
       <div class="card" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">{{ post.title }}</h5>
@@ -25,6 +36,6 @@
         </div>
       </div>
     </section>
-    <button class="btn btn-primary" (click)="stopClick()">Stop Click</button>
+    <!-- <button class="btn btn-primary" (click)="stopClick()">Stop Click</button> -->
   </section>
 </section>

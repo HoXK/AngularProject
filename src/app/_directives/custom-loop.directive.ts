@@ -9,7 +9,6 @@ export class CustomLoopDirective {
     private viewContainerRef: ViewContainerRef
   ) {}
   @Input("appCustomLoop") set loop(num: number) {
-    debugger;
     for (var i = 0; i < num; i++) {
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     }

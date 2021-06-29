@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ActivatedRouteSnapshot, Data } from "@angular/router";
+import { Observable } from "rxjs";
 import { Users } from "src/app/_helpers/interfaces/userDetails";
 import { UsersService } from "src/app/_services/users.service";
 
@@ -10,6 +11,7 @@ import { UsersService } from "src/app/_services/users.service";
 })
 export class UserDataDisplayComponent implements OnInit {
   users: Users[];
+  usersObs: Observable<Users[]>;
 
   constructor(
     private userService: UsersService,
@@ -17,10 +19,12 @@ export class UserDataDisplayComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.data.subscribe((data: Data) => {
-      this.users = data["users"];
-    });
-    // this.getAllUsers();
+    // this.route.data.subscribe((data: Data) => {
+    //   this.users = data["users"];
+    // });
+    this.getAllUsers();
+
+    this.usersObs = this.userService.getAllUsers();
   }
 
   onDelete(userId: number) {

@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { parse } from "querystring";
 import { ContactUs } from "../_helpers/interfaces/contactUs";
 
 @Component({

@@ -1,4 +1,4 @@
-<div class="container" *ngIf="users.length > 0">
+<div class="container">
   <table class="table">
     <thead class=".thead-dark">
       <tr>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
+      <tr *ngFor="let user of usersObs | async">
         <td>{{ user.id }}</td>
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>

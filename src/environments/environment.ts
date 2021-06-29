@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiHost: "https://jsonplaceholder.typicode.com",
-  localApiHost: "http://localhost:4100",
+  localApiHost: "https://node-angular-api.herokuapp.com",
 };
 
 /*

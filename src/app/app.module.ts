@@ -40,6 +40,13 @@ import { JwtInterceptor } from "./_helpers/jwt-Interceptor";
 import { ErrorInterceptor } from "./_helpers/error-Interceptor";
 import { MaterialRoutingModule } from "./_material/_material-routing.module";
 import { MaterialModule } from "./_material/_material.module";
+import { CustomPipeRoutingModule } from "./_custom-pipe/_custom-pipe-routing.module";
+import { CustomPipeModule } from "./_custom-pipe/_custom-pipe.module";
+import {
+  MatAutocompleteModule,
+  MatFormFieldModule,
+  MatInputModule,
+} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -61,6 +68,7 @@ import { MaterialModule } from "./_material/_material.module";
     UserDataDisplayComponent,
     ContactDataDisplayComponent,
     RxjsOperatorsComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -73,8 +81,13 @@ import { MaterialModule } from "./_material/_material.module";
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MaterialRoutingModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    CustomPipeModule,
+    MaterialRoutingModule,
+    CustomPipeRoutingModule,
   ],
   providers: [
     UnsavedChangesGuard,

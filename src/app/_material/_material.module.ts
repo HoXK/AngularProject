@@ -3,13 +3,11 @@ import { CommonModule } from "@angular/common";
 
 import { MaterialRoutingModule } from "./_material-routing.module";
 import { CardComponentComponent } from "./card-component/card-component.component";
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSelectModule,
-} from "@angular/material";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatButtonModule } from "@angular/material/button";
+import { MatSelectModule } from "@angular/material/select";
+import { MatCardModule } from "@angular/material/card";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
@@ -25,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialRoutingModule,
     MatCardModule,
     MatButtonModule,
@@ -33,8 +33,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule,
   ],
 })
 export class MaterialModule {}

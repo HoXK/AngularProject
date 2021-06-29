@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { from, fromEvent, of, Subject } from "rxjs";
+import { fromEvent, of, Subject } from "rxjs";
 import {
   first,
   map,
@@ -22,6 +22,7 @@ export class PostsComponent implements OnInit {
   posts: Posts[];
   count: number = 0;
   startClick: Subject<void> = new Subject<void>();
+  searchInput: any = "";
 
   constructor(private postService: PostsService) {}
 

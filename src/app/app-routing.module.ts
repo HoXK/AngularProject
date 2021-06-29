@@ -73,6 +73,13 @@ const routes: Routes = [
       import("./_material/_material.module").then((x) => x.MaterialModule),
   },
   {
+    path: "custom-pipe",
+    loadChildren: () =>
+      import("./_custom-pipe/_custom-pipe.module").then(
+        (x) => x.CustomPipeModule
+      ),
+  },
+  {
     path: "task",
     loadChildren: () => import("./task/task.module").then((m) => m.TaskModule),
   },
