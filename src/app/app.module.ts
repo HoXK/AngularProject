@@ -68,7 +68,6 @@ import {
     UserDataDisplayComponent,
     ContactDataDisplayComponent,
     RxjsOperatorsComponent,
-    HighlightDirective,
   ],
   imports: [
     BrowserModule,
