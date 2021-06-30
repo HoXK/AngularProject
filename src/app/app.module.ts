@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -48,6 +48,11 @@ import {
   MatFormFieldModule,
   MatInputModule,
 } from "@angular/material";
+import { FinalAssignmentComponent } from "./final-assignment/final-assignment.component";
+import { FinalAssignmentModule } from "./final-assignment/final-assignment.module";
+import { FinalAssignmentRoutingModule } from "./final-assignment/final-assignment-routing.module";
+import { ThemeService } from "ng2-charts";
+import { GlobalErrorHandler } from "./_helpers/global-error-handler";
 
 @NgModule({
   declarations: [
@@ -69,6 +74,7 @@ import {
     UserDataDisplayComponent,
     ContactDataDisplayComponent,
     RxjsOperatorsComponent,
+    FinalAssignmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,14 +87,16 @@ import {
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MaterialRoutingModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
     MatCardModule,
     CustomPipeModule,
-    MaterialRoutingModule,
     CustomPipeRoutingModule,
+    FinalAssignmentModule,
+    FinalAssignmentRoutingModule,
   ],
   providers: [
     UnsavedChangesGuard,
@@ -96,6 +104,12 @@ import {
     userDataDisplayResolverService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ,
+    ThemeService,
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
   ],
   exports: [HighlightDirective, CustomLoopDirective],
   bootstrap: [AppComponent],

@@ -4,6 +4,7 @@ import { ActivatedRoute, convertToParamMap } from "@angular/router";
 import { SearchFilterPipe } from "../search-filter.pipe";
 
 import { PostDetailsComponent } from "./post-details.component";
+import { Posts } from "src/app/_helpers/interfaces/posts";
 
 describe("PostDetailsComponent", () => {
   let component: PostDetailsComponent;
@@ -33,6 +34,12 @@ describe("PostDetailsComponent", () => {
   });
 
   it("should create", () => {
+    let post: Posts;
+
+    post.id = 1;
+    post.title = "title";
+    post.body = "body";
+
     expect(component).toBeTruthy();
   });
 });

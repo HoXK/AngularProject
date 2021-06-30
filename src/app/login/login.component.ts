@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.auth
       .login(form.controls["username"].value, form.controls["password"].value)
-      .subscribe((data) => this.router.navigate(["../"]));
+      .subscribe((data) =>
+        this.router.navigate(["../final-assignment/dashboard/"])
+      );
   }
 }

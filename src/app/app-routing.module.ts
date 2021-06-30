@@ -80,6 +80,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: "final-assignment",
+    loadChildren: () =>
+      import("./final-assignment/final-assignment.module").then(
+        (x) => x.FinalAssignmentModule
+      ),
+    canActivate: [Login],
+  },
+  {
     path: "task",
     loadChildren: () => import("./task/task.module").then((m) => m.TaskModule),
   },

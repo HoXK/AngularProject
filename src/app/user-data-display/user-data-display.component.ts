@@ -6,7 +6,7 @@ import { Users } from "../_helpers/interfaces/userDetails";
   styleUrls: ["./user-data-display.component.css"],
 })
 export class UserDataDisplayComponent implements OnInit {
-  @Input("userList") UserList: Users[] = [];
+  @Input("userList") UserList: Users[];
 
   constructor() {
     console.log(this.UserList);

@@ -7,7 +7,7 @@ import { ContactUs } from "../_helpers/interfaces/contactUs";
   styleUrls: ["./contact-data-display.component.css"],
 })
 export class ContactDataDisplayComponent implements OnInit {
-  contacts: ContactUs[] = [];
+  contacts: ContactUs[];
 
   constructor() {}
 

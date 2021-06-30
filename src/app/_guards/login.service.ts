@@ -1,15 +1,27 @@
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot } from '@angular/router';
+import { Injectable } from "@angular/core";
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  RouterStateSnapshot,
+} from "@angular/router";
+import { LoginUser } from "../_helpers/interfaces/LoginUser";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: "root" })
 export class Login implements CanActivate {
-  constructor() { }
+  currentUser: LoginUser;
+
+  constructor() {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if(sessionStorage.getItem('Username')=='Avensys'
-      && sessionStorage.getItem('Password')=='Avensys123'){
-      return true
-    }else{
+    this.currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+
+    if (
+      this.currentUser &&
+      this.currentUser.token &&
+      this.currentUser.token !== ""
+    ) {
+      return true;
+    } else {
       return false;
     }
   }
