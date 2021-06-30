@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Observable, Subscription } from "rxjs/Rx";
+import { Observable, Subscription, interval } from "rxjs";
+import { map, take } from "rxjs/operators";
 
 @Component({
   selector: "app-async-pipe",
@@ -7,35 +8,36 @@ import { Observable, Subscription } from "rxjs/Rx";
   styleUrls: ["./async-pipe.component.css"],
 })
 export class AsyncPipeComponent implements OnInit, OnDestroy {
-  promise: Promise<string>;
+  promise: Promise<{}>;
   observable: Observable<number>;
-  subscription: Subscription;
+  subscription: Subscription = null;
   observableData: number;
 
   constructor() {
-    // this.promise = this.getPromise();
-    // this.observable = this.getObservable();
-    // this.subscription = this.subscribeObservable();
+    this.promise = this.getPromise();
+    this.observable = this.getObservable();
+    this.subscribeObservable();
   }
 
   ngOnInit() {}
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   getObservable() {
-    return Observable.interval(1000)
-      .take(10)
-      .map((v) => {
-        v * v;
-      });
+    return interval(1000).pipe(
+      take(10),
+      map((v) => v * v)
+    );
   }
 
   subscribeObservable() {
-    // this.subscription = this.getObservable().subscribe((v) => {
-    //   this.observableData = v;
-    // });
+    this.subscription = this.getObservable().subscribe((v) => {
+      this.observableData = v;
+    });
   }
 
   getPromise(): Promise<string> {

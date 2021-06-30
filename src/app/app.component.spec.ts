@@ -1,14 +1,21 @@
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { TestBed, async } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { AppComponent } from "./app.component";
-import { CustomLoopDirective } from "./_directives/custom-loop.directive";
-import { HighlightDirective } from "./_directives/highlight.directive";
+import { FooterComponent } from "./footer/footer.component";
+import { HeaderComponent } from "./header/header.component";
+import { SliderComponent } from "./slider/slider.component";
 
 describe("AppComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HighlightDirective, CustomLoopDirective],
-      declarations: [AppComponent],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [
+        AppComponent,
+        HeaderComponent,
+        SliderComponent,
+        FooterComponent,
+      ],
     }).compileComponents();
   }));
 

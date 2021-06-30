@@ -12,32 +12,27 @@ export class UsersService {
   constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<Users[]> {
-    return this.http
-      .get(`${environment.localApiHost}/user`)
-      .pipe(map((data: Users[]) => data));
+    return this.http.get<Users[]>(`${environment.localApiHost}/user`);
   }
 
   getUser(uid): Observable<Users> {
-    return this.http
-      .get(`${environment.localApiHost}/user/${uid}`)
-      .pipe(map((data: Users) => data));
+    return this.http.get<Users>(`${environment.localApiHost}/user/${uid}`);
   }
 
   createUser(user: Users): Observable<Users> {
-    return this.http
-      .post(`${environment.localApiHost}/createUser`, user)
-      .pipe(map((data: Users) => data));
+    return this.http.post<Users>(
+      `${environment.localApiHost}/createUser`,
+      user
+    );
   }
 
   editUser(user: Users): Observable<Users> {
-    return this.http
-      .put(`${environment.localApiHost}/updateUser`, user)
-      .pipe(map((data: Users) => data));
+    return this.http.put<Users>(`${environment.localApiHost}/updateUser`, user);
   }
 
   deleteUser(userId: number): Observable<Users> {
-    return this.http
-      .delete(`${environment.localApiHost}/deleteUser/${userId}`)
-      .pipe(map((data: Users) => data));
+    return this.http.delete<Users>(
+      `${environment.localApiHost}/deleteUser/${userId}`
+    );
   }
 }

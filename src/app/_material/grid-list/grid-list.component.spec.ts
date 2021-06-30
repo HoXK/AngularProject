@@ -1,16 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatGridListModule } from "@angular/material";
 
-import { GridListComponent } from './grid-list.component';
+import { GridListComponent } from "./grid-list.component";
 
-describe('GridListComponent', () => {
+describe("GridListComponent", () => {
   let component: GridListComponent;
   let fixture: ComponentFixture<GridListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GridListComponent ]
-    })
-    .compileComponents();
+      imports: [MatGridListModule],
+      declarations: [GridListComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('GridListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

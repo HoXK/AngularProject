@@ -5,7 +5,10 @@ describe("RotateAnimationDirective", () => {
   let elementRef: ElementRef;
 
   it("should create an instance", () => {
-    const directive = new RotateAnimationDirective(elementRef);
+    const template: ElementRef =
+      elementRef.nativeElement.querySelectorAll("img");
+
+    const directive = new RotateAnimationDirective(template);
     expect(directive).toBeTruthy();
   });
 });

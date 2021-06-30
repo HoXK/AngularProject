@@ -1,16 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule } from "@angular/forms";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { PostsComponent } from './posts.component';
+import { PostsComponent } from "./posts.component";
+import { SearchFilterPipe } from "./search-filter.pipe";
 
-describe('PostsComponent', () => {
+describe("PostsComponent", () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule, RouterTestingModule, HttpClientTestingModule],
+      declarations: [PostsComponent, SearchFilterPipe],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +23,7 @@ describe('PostsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

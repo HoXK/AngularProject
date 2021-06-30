@@ -1,16 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SignUpComponent } from "../sign-up/sign-up.component";
+import { UserDataDisplayComponent } from "../user-data-display/user-data-display.component";
+import { HighlightDirective } from "../_directives/highlight.directive";
 
-import { ListOfRegisteredUsersComponent } from './list-of-registered-users.component';
+import { ListOfRegisteredUsersComponent } from "./list-of-registered-users.component";
 
-describe('ListOfRegisteredUsersComponent', () => {
+describe("ListOfRegisteredUsersComponent", () => {
   let component: ListOfRegisteredUsersComponent;
   let fixture: ComponentFixture<ListOfRegisteredUsersComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListOfRegisteredUsersComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule, ReactiveFormsModule],
+      declarations: [
+        ListOfRegisteredUsersComponent,
+        SignUpComponent,
+        UserDataDisplayComponent,
+        HighlightDirective,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +28,7 @@ describe('ListOfRegisteredUsersComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -44,6 +44,7 @@ import { CustomPipeRoutingModule } from "./_custom-pipe/_custom-pipe-routing.mod
 import { CustomPipeModule } from "./_custom-pipe/_custom-pipe.module";
 import {
   MatAutocompleteModule,
+  MatCardModule,
   MatFormFieldModule,
   MatInputModule,
 } from "@angular/material";
@@ -84,6 +85,7 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatCardModule,
     CustomPipeModule,
     MaterialRoutingModule,
     CustomPipeRoutingModule,

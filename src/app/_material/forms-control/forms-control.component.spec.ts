@@ -1,16 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ReactiveFormsModule } from "@angular/forms";
+import {
+  MatAutocompleteModule,
+  MatFormField,
+  MatFormFieldModule,
+  MatInputModule,
+} from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { FormsControlComponent } from './forms-control.component';
+import { FormsControlComponent } from "./forms-control.component";
 
-describe('FormsControlComponent', () => {
+describe("FormsControlComponent", () => {
   let component: FormsControlComponent;
   let fixture: ComponentFixture<FormsControlComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormsControlComponent ]
-    })
-    .compileComponents();
+      imports: [
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        BrowserAnimationsModule,
+      ],
+      declarations: [FormsControlComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +32,7 @@ describe('FormsControlComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

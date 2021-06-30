@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, AfterViewInit } from "@angular/core";
+import { Users } from "../_helpers/interfaces/userDetails";
 @Component({
   selector: "app-user-data-display",
   templateUrl: "./user-data-display.component.html",
   styleUrls: ["./user-data-display.component.css"],
 })
 export class UserDataDisplayComponent implements OnInit {
-  @Input("userList") UserList;
+  @Input("userList") UserList: Users[] = [];
 
   constructor() {
     console.log(this.UserList);
